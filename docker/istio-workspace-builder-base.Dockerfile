@@ -10,7 +10,7 @@ ENV CI prow
 
 # Install all dependencies available in RPM repos
 RUN dnf -y update && \
-    dnf -y install bash-completion jq xz golang ruby make wget which inotify-tools podman buildah && \
+    dnf -y install bash-completion jq xz golang make wget which inotify-tools podman buildah && \
     dnf -y clean all
 
 # Go tools
