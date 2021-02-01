@@ -1,6 +1,6 @@
 FROM fedora:33
 
-ENV OC_VERSION="4.6.16"
+ENV OC_VERSION="4.6.15"
 
 ENV GOPROXY="https://proxy.golang.org,direct"
 
