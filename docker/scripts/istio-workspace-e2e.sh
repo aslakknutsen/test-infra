@@ -26,7 +26,7 @@ if [[ -f "$STATUS_DIR/image_build_failed" ]]; then
   exit 1
 fi
 
-export IKE_IMAGE_TAG="PR-${PULL_NUMBER}-prow"
+export IKE_IMAGE_TAG="pr-${PULL_NUMBER}-prow"
 
 export GOBIN="${GOPATH}/bin"
 export GOROOT=/usr/lib/golang/
