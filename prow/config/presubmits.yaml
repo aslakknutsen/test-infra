@@ -82,6 +82,8 @@ presubmits:
                 value: maistra
               - name: PRE_BUILT_IMAGES
                 value: "true"
+              - name: TIMEOUT
+                value: "3600"
             resources:
               limits:
                 memory: 2Gi
