@@ -24,6 +24,6 @@ for file in "${DIR}"/cluster/*; do
 done
 
 # restart deployments
-for deployment in $(kubectl get deployments -n default -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}'); do
-  kubectl -n "${NAMESPACE}" rollout restart deployment "${deployment}"
+for deployment in $(kubectl get deployments -n "${NAMESPACE}" -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}'); do
+  kubectl rollout restart deployment "${deployment}" -n "${NAMESPACE}"
 done

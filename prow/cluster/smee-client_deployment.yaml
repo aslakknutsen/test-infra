@@ -1,6 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
+  namespace: ${NAMESPACE}
   name: smee-client
   labels:
     app: smee-client
