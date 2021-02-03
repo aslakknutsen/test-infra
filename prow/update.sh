@@ -11,7 +11,7 @@ WORKER_NS=${WORKER_NS:-test-pods}
 (kubectl get nodes | grep maistra.test) || (echo "Wrong cluster. Exiting..."; exit 1)
 
 # make sure we use the latest configuration
-./"${DIR}"/gen-config.sh
+. "${DIR}"/gen-config.sh
 
 # update config and plugins
 kubectl -n "${NAMESPACE}" create configmap config --from-file=config.yaml="${DIR}"/config.gen.yaml --dry-run -o yaml | kubectl -n "${NAMESPACE}" replace configmap config -f -
