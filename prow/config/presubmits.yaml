@@ -14,7 +14,7 @@ presubmits:
           - name: varlibc
         containers:
           - name: "image-builder"
-            image: "quay.io/maistra/istio-workspace-image-builder:latest"
+            image: "quay.io/maistra-dev/istio-workspace-image-builder:latest"
             imagePullPolicy: Always
             securityContext:
               privileged: true
@@ -44,7 +44,7 @@ presubmits:
                 cpu: "0.5"
                 memory: 1Gi
           - name: "openshift-e2e-tests"
-            image: "quay.io/maistra/istio-workspace-tester:latest"
+            image: "quay.io/maistra-dev/istio-workspace-tester:latest"
             imagePullPolicy: Always
             command:
               - run-tests.sh

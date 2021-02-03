@@ -1,4 +1,4 @@
-FROM quay.io/maistra/istio-workspace-builder-base:latest
+FROM quay.io/maistra-dev/istio-workspace-builder-base:latest
 
 # Kubectl / oc
 RUN wget -q "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OC_VERSION}/openshift-client-linux-${OC_VERSION}.tar.gz" -O "oc.tar.gz" && \

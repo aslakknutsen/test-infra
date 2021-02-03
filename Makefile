@@ -1,4 +1,4 @@
-HUB ?= quay.io/maistra
+HUB ?= quay.io/maistra-dev
 BUILD_IMAGE_PREFIX = istio-workspace
 BUILD_IMAGE_TAG ?= latest
 BUILD_IMAGES = $(BUILD_IMAGE_PREFIX)-builder-base $(BUILD_IMAGE_PREFIX)-image-builder $(BUILD_IMAGE_PREFIX)-tester $(BUILD_IMAGE_PREFIX)-smee-client

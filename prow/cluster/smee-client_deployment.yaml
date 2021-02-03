@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: smee-client
-          image: quay.io/maistra/istio-workspace-smee-client:latest
+          image: quay.io/maistra-dev/istio-workspace-smee-client:latest
           imagePullPolicy: Always
           env:
             - name: SMEE_SOURCE
