@@ -1,6 +1,6 @@
 plank:
   job_url_prefix_config:
-    '*': "http://status-prow.apps.workspace.maistra.test/"
+    '*': "http://status-prow.apps.workspace.maistra.test/view/"
   default_decoration_configs:
     '*':
       timeout: 4h
