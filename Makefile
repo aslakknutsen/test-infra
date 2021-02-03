@@ -10,6 +10,7 @@ IMG_BUILDER:=docker
 	IMG_BUILDER=podman
  endif
 
+.PHONY: images
 images: $(BUILD_IMAGES)
 
 ${BUILD_IMAGE_PREFIX}-%:
@@ -19,14 +20,21 @@ ${BUILD_IMAGE_PREFIX}-%:
 				 -f docker/$@.Dockerfile docker
 	$(IMG_BUILDER) push ${HUB}/${IMAGE}
 
+.PHONY: gen-check
 gen-check: gen check-clean-repo
 
+.PHONY: gen
 gen:
 	(cd prow; sh gen-config.sh)
 
+.PHONY: check-clean-repo
 check-clean-repo:
 	@if [[ -n $$(git status --porcelain) ]]; then git status; git diff; echo "ERROR: Some files need to be updated, please run 'make gen' and include any changed files in your PR"; exit 1;	fi
 
-update-prow:
-	(cd prow; sh update.sh)
+.PHONY: update-prow-cluster
+update-prow-cluster: gen
+	sh prow/update.sh
 
+.PHONY: update-prow-version
+update-prow-version:
+	sh prow/bump-version.sh
