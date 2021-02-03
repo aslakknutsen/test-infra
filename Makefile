@@ -3,8 +3,12 @@ BUILD_IMAGE_PREFIX = istio-workspace
 BUILD_IMAGE_TAG ?= latest
 BUILD_IMAGES = $(BUILD_IMAGE_PREFIX)-builder-base $(BUILD_IMAGE_PREFIX)-image-builder $(BUILD_IMAGE_PREFIX)-tester $(BUILD_IMAGE_PREFIX)-smee-client
 
-IMG_BUILDER:=docker
+NAMESPACE ?= prow
+WORKER_NS ?= prow-test-pods
+export NAMESPACE
+export WORKER_NS
 
+IMG_BUILDER:=docker
 ## Prefer to use podman
  ifneq (, $(shell which podman))
 	IMG_BUILDER=podman
@@ -37,4 +41,4 @@ update-prow-cluster: gen
 
 .PHONY: update-prow-version
 update-prow-version:
-	sh prow/bump-version.sh
+	sh prow/bump-version.sh upstream
