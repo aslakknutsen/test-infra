@@ -28,7 +28,7 @@ make docker-build docker-push-versioned
 make docker-build-test docker-push-test
 IKE_TEST_PREPARED_NAME="prepared-image" make docker-build-test-prepared docker-push-test-prepared
 IKE_TEST_PREPARED_NAME="image-prepared" make docker-build-test-prepared docker-push-test-prepared
-make bundle-build bundle-push
+make bundle bundle-build bundle-push
 
 touch "$STATUS_DIR/image_build_succeeded"
 echo "INFO: image build finished" > "$STATUS_DIR/image_build_succeeded"
